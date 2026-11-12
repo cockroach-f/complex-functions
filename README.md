@@ -9,9 +9,9 @@
 ## 进度
 
 - [x] 第 1 章 复数与复变函数（正文 + 5 段动画 + 练习）
-- [ ] 第 2 章 解析函数
-- [ ] 第 3 章 复变函数的积分
-- [ ] 第 4 章 解析函数的级数表示
+- [x] 第 2 章 解析函数（正文 + 4 段动画 + 练习）
+- [x] 第 3 章 复变函数的积分（正文 + 3 段动画 + 练习）
+- [x] 第 4 章 解析函数的级数表示（正文 + 3 段动画 + 练习）
 - [ ] 第 5 章 留数及其应用
 - [ ] 第 6 章 共形映射
 
@@ -43,7 +43,14 @@ tools/
 
 ## 重新渲染动画
 
-依赖 [Manim Community](https://www.manim.community/)（≥0.18）和 ffmpeg；**不需要 LaTeX**（公式用 Text + Unicode 绘制），中文字体使用 Noto Sans CJK SC。
+依赖 [Manim Community](https://www.manim.community/)（≥0.18）、ffmpeg 和 TeX 发行版：公式用 `MathTex` 排版，中文用 `Tex` + **ctex**（xelatex 编译）。最小安装可用 [TinyTeX](https://yihui.org/tinytex/)，再补装宏包：
+
+```bash
+tlmgr install ctex xecjk fandol standalone preview dvisvgm mathtools jknapltx fundus-calligra \
+  wasy wasy-type1 tipa microtype psnfss physics doublestroke relsize setspace ragged2e babel-english cm-super
+```
+
+`tools/render_videos.sh` 会自动把 `TINYTEX_BIN`（默认 `/workspace/tools/.TinyTeX/bin/x86_64-linux`）加入 PATH。
 
 ```bash
 pip install manim            # 或 conda install -c conda-forge manim

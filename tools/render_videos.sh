@@ -2,8 +2,11 @@
 # 渲染 animations/ 下的 manim 场景为 720p30 MP4，并复制到 docs/assets/videos/，同时截取封面图。
 # 用法：tools/render_videos.sh [scene_file.py] [Scene ...]
 #   不带参数：渲染所有 animations/ch*_scenes.py 中的全部场景
-# 依赖：manim (Community, >=0.18)、ffmpeg。不需要 LaTeX（所有公式都用 Text + Unicode 绘制）。
+# 依赖：manim (Community, >=0.18)、ffmpeg、TeX 发行版（xelatex + ctex，公式用 MathTex/Tex 排版）。
+#   若存在 TINYTEX_BIN（默认 /workspace/tools/.TinyTeX/bin/x86_64-linux）会自动加入 PATH。
 set -euo pipefail
+TINYTEX_BIN="${TINYTEX_BIN:-/workspace/tools/.TinyTeX/bin/x86_64-linux}"
+[[ -d "$TINYTEX_BIN" ]] && export PATH="$TINYTEX_BIN:$PATH"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT/animations"
 OUT="$ROOT/docs/assets/videos"; POS="$ROOT/docs/assets/posters"
