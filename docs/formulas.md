@@ -135,8 +135,8 @@
 
 | 内容 | 公式 |
 |---|---|
-| 定义 | $F(s)=\mathcal L[f(t)]=\int_0^{+\infty}f(t)e^{-st}\,\mathrm dt$，$s=\beta+j\omega$ |
-| 与傅里叶变换的关系 | $\mathcal L[f]=\mathcal F\left[f(t)u(t)e^{-\beta t}\right]$ |
+| 定义 | $F(s)=\mathcal L[f(t)]=\int_0^{+\infty}f(t)e^{-st}\,\mathrm dt$，$s=\sigma+j\omega$ |
+| 与傅里叶变换的关系 | $\mathcal L[f]=\mathcal F\left[f(t)u(t)e^{-\sigma t}\right]$ |
 | 存在定理 | $\lvert f(t)\rvert\le Me^{ct}$ ⇒ $F(s)$ 在 $\operatorname{Re}s>c$ 内存在且解析 |
 | 常用变换 | $\mathcal L[1]=\frac1s$，$\mathcal L[\delta]=1$，$\mathcal L[e^{at}]=\frac1{s-a}$，$\mathcal L[t^m]=\frac{m!}{s^{m+1}}$ |
 | 正弦、余弦 | $\mathcal L[\sin bt]=\frac{b}{s^2+b^2}$，$\mathcal L[\cos bt]=\frac{s}{s^2+b^2}$ |
@@ -146,7 +146,10 @@
 | 微分 | $\mathcal L[f^{(n)}]=s^nF(s)-s^{n-1}f(0)-s^{n-2}f'(0)-\cdots-f^{(n-1)}(0)$ |
 | 象函数的导数 | $F^{(n)}(s)=(-1)^n\mathcal L[t^nf(t)]$ |
 | 积分 | $\mathcal L\left[\int_0^tf\,\mathrm d\tau\right]=\frac{F(s)}s$；$\int_s^{\infty}F(s)\,\mathrm ds=\mathcal L\left[\frac{f(t)}t\right]$ |
+| 初值、终值 | $f(0^+)=\lim\limits_{s\to\infty}sF(s)$；$f(+\infty)=\lim\limits_{s\to0}sF(s)$（$sF(s)$ 的极点全在左半平面） |
 | 周期函数 | $\mathcal L[f]=\frac1{1-e^{-sT}}\int_0^Tf(t)e^{-st}\,\mathrm dt$ |
 | 卷积定理 | $\mathcal L\left[\int_0^tf_1(\tau)f_2(t-\tau)\,\mathrm d\tau\right]=F_1(s)F_2(s)$ |
-| 反演积分 | $f(t)=\frac1{2\pi j}\int_{\beta-j\infty}^{\beta+j\infty}F(s)e^{st}\,\mathrm ds=\sum_k\operatorname{Res}[F(s)e^{st},s_k]$（$t>0$） |
+| 反演积分 | $f(t)=\frac1{2\pi j}\int_{\beta-j\infty}^{\beta+j\infty}F(s)e^{st}\,\mathrm ds=\sum_k\operatorname{Res}[F(s)e^{st},s_k]$（$t>0$，$\operatorname{Re}s=\beta$ 在所有奇点右侧） |
+| 一阶极点（赫维赛德展开） | $\mathcal L^{-1}\left[\frac{P(s)}{Q(s)}\right]=\sum_k\frac{P(s_k)}{Q'(s_k)}e^{s_kt}$ |
 | 解常微分方程 | 两边取 $\mathcal L$（代入初值）→ 解代数方程得 $Y(s)$ → 求 $\mathcal L^{-1}$ |
+| 传递函数 | $H(s)=\frac{Y(s)}{X(s)}$（零初始状态），$h(t)=\mathcal L^{-1}[H]$，$y=h*x$；极点全在 $\operatorname{Re}s<0$ ⇔ 稳定 |

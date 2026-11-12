@@ -154,7 +154,7 @@ class C9_PoleResponse(Scene):
 
 
 # --------------------------------------------------------------------------
-# 9.3 反演积分：Bromwich 直线 + 左半大圆弧（若尔当引理）⇒ 留数之和
+# 9.3 反演积分：Bromwich 直线 + 左半大圆弧（约当引理）⇒ 留数之和
 # --------------------------------------------------------------------------
 class C9_Bromwich(Scene):
     def construct(self):
@@ -170,7 +170,8 @@ class C9_Bromwich(Scene):
         R = ValueTracker(1.2)
         Lline = always_redraw(lambda: Line(P.n2p(complex(beta, -R.get_value())), P.n2p(complex(beta, R.get_value())), color=C_W, stroke_width=4).add_tip(tip_length=0.18))
         bl = MT(r"\operatorname{Re}s=\beta", 24, C_W).next_to(P.n2p(complex(beta, 2.6)), RIGHT, buff=0.08)
-        t1 = CT(r"积分路径：收敛域内、所有奇点右侧的竖直线", 24).next_to(F, DOWN, buff=0.4).to_edge(RIGHT, buff=0.4)
+        t1 = CT(r"积分路径：收敛域内、所有奇点右侧的竖直线", 24).next_to(F, DOWN, buff=0.4)
+        t1.set_x(0.3 + t1.width / 2)
         self.play(Create(Lline), FadeIn(bl), FadeIn(t1))
         self.wait(0.8)
         arc = always_redraw(lambda: ParametricFunction(lambda th: P.n2p(beta + R.get_value() * np.exp(1j * th)), t_range=[PI / 2, 3 * PI / 2], color=C_HL, stroke_width=4))
@@ -179,21 +180,21 @@ class C9_Bromwich(Scene):
         fitw(t2, 6.4).next_to(t1, DOWN, buff=0.3).align_to(t1, LEFT)
         self.play(Create(arc), FadeIn(al), FadeIn(t2))
         self.play(R.animate.set_value(3.2), run_time=3)
-        t3 = CT(r"若尔当引理：$R\to\infty$ 时 $\displaystyle\int_{C_R}F(s)e^{st}\,\mathrm ds\to0$", 24, C_HL)
+        t3 = CT(r"约当引理：$R\to\infty$ 时 $\displaystyle\int_{C_R}F(s)e^{st}\,\mathrm ds\to0$", 24, C_HL)
         fitw(t3, 6.4).next_to(t2, DOWN, buff=0.3).align_to(t1, LEFT)
         self.play(FadeIn(t3), *[Indicate(p, color=C_Z) for p in poles])
         r1 = MT(r"\operatorname{Res}[F e^{st},-1]=\frac{e^{-t}}{-1+2}=e^{-t}", 28)
         r2 = MT(r"\operatorname{Res}[F e^{st},-2]=\frac{e^{-2t}}{-2+1}=-e^{-2t}", 28)
         r3 = MT(r"f(t)=e^{-t}-e^{-2t}\quad(t>0)", 34, C_Z)
         g = VGroup(r1, r2, r3).arrange(DOWN, aligned_edge=LEFT, buff=0.25)
-        fitw(g, 6.2).next_to(t3, DOWN, buff=0.4).align_to(t1, LEFT)
+        fitw(g, 6.0).next_to(t3, DOWN, buff=0.4).align_to(t1, LEFT)
         self.play(FadeIn(r1))
         self.play(FadeIn(r2))
         box = SurroundingRectangle(r3, color=C_Z, buff=0.1)
         self.play(FadeIn(r3), Create(box))
         self.wait(1.5)
         # t<0：向右闭合
-        arcR = ParametricFunction(lambda th: P.n2p(beta + 1.15 * np.exp(1j * th)), t_range=[PI / 2, -PI / 2], color=GREY_B, stroke_width=3)
+        arcR = ParametricFunction(lambda th: P.n2p(beta + 1.15 * np.exp(1j * th)), t_range=[-PI / 2, PI / 2], color=GREY_B, stroke_width=3)
         arcR = DashedVMobject(arcR, num_dashes=24)
         t4 = CT(r"$t<0$：改向右补圆弧，内部无奇点 $\Rightarrow f(t)=0$（因果性）", 24, GREY_B)
         fitw(t4, 6.4).to_edge(DOWN, buff=0.3).align_to(t1, LEFT)
@@ -204,6 +205,10 @@ class C9_Bromwich(Scene):
 # --------------------------------------------------------------------------
 # 9.1/9.4 |H(s)| 曲面：极点处隆起；沿虚轴切一刀就是频率响应 |H(jω)|
 # --------------------------------------------------------------------------
+def max_den(d):
+    return d if abs(d) > 1e-6 else 1e-6
+
+
 class C9_SurfaceFreqResponse(ThreeDScene):
     def construct(self):
         self.set_camera_orientation(phi=62 * DEGREES, theta=-35 * DEGREES, zoom=0.9)
@@ -211,7 +216,7 @@ class C9_SurfaceFreqResponse(ThreeDScene):
         self.add_fixed_in_frame_mobjects(title)
         axes = ThreeDAxes(x_range=[-2, 1.5, 1], y_range=[-3.5, 3.5, 1], z_range=[0, 1.6, 0.5], x_length=3.5 * 1.3, y_length=7 * 0.9, z_length=2.6,
                           axis_config={"include_ticks": False, "stroke_width": 2})
-        H = lambda s: 1 / ((s + 0.5) ** 2 + 4)
+        H = lambda s: 1 / max_den((s + 0.5) ** 2 + 4)
         zc = 1.5
 
         def surf(u, v):
@@ -242,3 +247,69 @@ class C9_SurfaceFreqResponse(ThreeDScene):
         self.play(FadeOut(cap2), FadeIn(cap3))
         self.wait(4)
         self.stop_ambient_camera_rotation()
+
+
+# --------------------------------------------------------------------------
+# 9.2 卷积：翻转、平移、相乘、积分；L[f1*f2]=F1F2
+# --------------------------------------------------------------------------
+class C9_Convolution(Scene):
+    def construct(self):
+        title = title_bar(r"卷积 $(f_1*f_2)(t)=\displaystyle\int_0^{t}f_1(\tau)f_2(t-\tau)\,\mathrm d\tau$：翻转、平移、相乘、求面积", 30)
+        self.play(FadeIn(title))
+        W = 1.5  # 矩形脉冲宽度
+        f1 = lambda x: np.exp(-x) if x >= 0 else 0.0
+        f2 = lambda x: 1.0 if 0 <= x <= W else 0.0
+
+        def y(t):
+            if t <= 0:
+                return 0.0
+            if t <= W:
+                return 1 - np.exp(-t)
+            return np.exp(-(t - W)) - np.exp(-t)
+
+        A = ax((-1.6, 6, 1), (0, 1.3, 1), 10.5, 2.2).move_to(UP * 1.25 + LEFT * 0.4)
+        B = ax((0, 6, 1), (0, 1.0, 1), 8.7, 2.0).move_to(DOWN * 2.15 + RIGHT * 0.5)
+        self.play(Create(A), Create(B))
+        self.add(MT(r"\tau", 26, GREY_B).next_to(A.x_axis.get_end(), DOWN, buff=0.1),
+                 MT("t", 26, GREY_B).next_to(B.x_axis.get_end(), DOWN, buff=0.1))
+        g1 = A.plot(lambda x: np.exp(-x), x_range=[0, 6, 0.02], color=C_W, stroke_width=4)
+        l1 = MT(r"f_1(\tau)=e^{-\tau}", 28, C_W).move_to(A.c2p(4.3, 0.95))
+        self.play(Create(g1), FadeIn(l1))
+        t = ValueTracker(-0.8)
+
+        def win():
+            tt = t.get_value()
+            a, b = tt - W, tt
+            pts = [A.c2p(max(a, -1.6), 0), A.c2p(max(a, -1.6), 1), A.c2p(b, 1), A.c2p(b, 0)]
+            return VMobject(color=C_Z, stroke_width=4).set_points_as_corners(pts)
+
+        G2 = always_redraw(win)
+        l2 = always_redraw(lambda: MT(r"f_2(t-\tau)", 26, C_Z).next_to(A.c2p(t.get_value() - W / 2, 1.0), UP, buff=0.08))
+        cap = CT(r"$f_2$ 是宽 $1.5$ 的矩形脉冲；把它\textbf{翻转}成 $f_2(-\tau)$，再\textbf{平移} $t$", 24, C_Z).to_edge(DOWN, buff=0.05).shift(UP * 3.55)
+        cap.next_to(A, DOWN, buff=0.15)
+        self.play(Create(G2), FadeIn(l2), FadeIn(cap))
+
+        def area():
+            tt = t.get_value()
+            a, b = max(0.0, tt - W), tt
+            if b <= 0.0 or b - a < 1e-3:
+                return VMobject()
+            return A.get_area(g1, x_range=[a, b], color=C_HL, opacity=0.55)
+
+        AR = always_redraw(area)
+        trace = always_redraw(lambda: B.plot(y, x_range=[0, max(t.get_value(), 0.001), 0.02], color=C_HL, stroke_width=4))
+        dot = always_redraw(lambda: Dot(B.c2p(max(t.get_value(), 0), y(t.get_value())), color=C_HL, radius=0.06))
+        lb = MT(r"y(t)=(f_1*f_2)(t)=\text{阴影面积}", 26, C_HL, tex_template=CTEX).move_to(B.c2p(4.3, 0.85))
+        self.add(AR, trace, dot)
+        self.play(FadeIn(lb))
+        self.play(t.animate.set_value(W), run_time=3.5, rate_func=linear)
+        c2 = CT(r"$0<t\le1.5$：面积 $=\int_0^t e^{-\tau}\,\mathrm d\tau=1-e^{-t}$（充电）", 24, C_Z).move_to(cap)
+        self.play(FadeTransform(cap, c2))
+        self.play(t.animate.set_value(5.6), l1.animate.set_opacity(0), run_time=5, rate_func=linear)
+        c3 = CT(r"$t>1.5$：面积 $=\int_{t-1.5}^{t}e^{-\tau}\,\mathrm d\tau=e^{-(t-1.5)}-e^{-t}$（放电）", 24, C_Z).move_to(cap)
+        self.play(FadeTransform(c2, c3))
+        self.wait(1)
+        fin = MT(r"\mathcal L[f_1*f_2]=F_1(s)F_2(s)=\frac{1}{s+1}\cdot\frac{1-e^{-1.5s}}{s}", 28, C_Z)
+        fin = boxed(fin).move_to(B.c2p(4.4, 0.82))
+        self.play(FadeOut(lb), FadeIn(fin))
+        self.wait(3)
