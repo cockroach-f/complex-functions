@@ -86,7 +86,6 @@ extra:
 
 nav:
   - 前言与知识地图: index.md
-  - 动画视频: videos.md
   - 第一部分 复数与函数:
       - 第 1 章 复数与复变函数: ch1.md
       - 第 2 章 解析函数: ch2.md

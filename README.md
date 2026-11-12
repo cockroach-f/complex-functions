@@ -30,7 +30,6 @@ mkdocs serve
 docs/
   index.md              # 前言与课程知识地图
   ch1.md … ch6.md       # 正文各章
-  videos.md             # 动画汇总
   formulas.md           # 公式速查
   references.md         # 参考资料与致谢
   assets/videos/        # manim 渲染的 MP4（720p）
@@ -55,9 +54,7 @@ python tools/make_figures.py                 # 静态图
 
 ## 部署
 
-站点由 `gh-pages` 分支托管（`mkdocs gh-deploy --force` 构建并推送），GitHub 自带的 *pages build and deployment* 工作流负责发布。
-
-若你的 GitHub token 具备 `workflow` 权限，可把 `pages.workflow.example.yml` 复制为 `.github/workflows/pages.yml` 推上去，改为 Actions 自动构建，并把 Pages 源切到 “GitHub Actions”。
+推送到 `main` 后，GitHub Actions（`.github/workflows/pages.yml`）自动执行 `mkdocs build --strict` 并发布到 GitHub Pages。
 
 ## 资料来源与版权
 
