@@ -1,5 +1,5 @@
 site_name: 复变函数从零到精通
-site_description: 从零开始的复变函数讲义——从复数到共形映射，配 manim 动画可视化与知识点归纳
+site_description: 从零开始的复变函数与积分变换讲义——从复数、留数、共形映射到傅里叶与拉普拉斯变换，配 manim 动画可视化与知识点归纳
 site_author: light
 site_url: https://cockroach-f.github.io/complex-functions/
 repo_url: https://github.com/cockroach-f/complex-functions

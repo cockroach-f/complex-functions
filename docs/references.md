@@ -4,7 +4,7 @@
 
 本讲义的内容组织（章节划分、知识点顺序、部分例题）参考了以下公开课程资料，**原 PPT 与 PDF 未在本站转载**，如需原件请访问原仓库：
 
-- **华中科技大学《复变函数与积分变换》课程资料**（PPT 第 1–6 章、教材、学习辅导与习题全解、复习资料），整理于 GitHub 仓库 [N-E-E/hust-complex_functions](https://github.com/N-E-E/hust-complex_functions)。
+- **华中科技大学《复变函数与积分变换》课程资料**（PPT 第 1–6 章与第 8、9 章（积分变换）、教材、学习辅导与习题全解、复习资料），整理于 GitHub 仓库 [N-E-E/hust-complex_functions](https://github.com/N-E-E/hust-complex_functions)。
 - 配套教材：华中科技大学数学与统计学院编《复变函数与积分变换》，高等教育出版社。文中“教材例 1.15”“教材 P19”等标注指该教材的例题 / 页码。
 - 中国大学 MOOC：[复变函数与积分变换（华中科技大学）](https://www.icourse163.org/course/HUST-1001983008)。
 

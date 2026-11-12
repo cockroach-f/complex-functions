@@ -81,8 +81,8 @@
 | 留数 | $\operatorname{Res}[f,z_0]=c_{-1}=\frac{1}{2\pi i}\oint_Cf\,\mathrm dz$ |
 | 留数定理 | $\oint_Cf\,\mathrm dz=2\pi i\sum_{k=1}^n\operatorname{Res}[f,z_k]$ |
 | 规则 I（一阶极点） | $\operatorname{Res}[f,z_0]=\lim_{z\to z_0}(z-z_0)f(z)$ |
-| 规则 II（$m$ 阶极点） | $\operatorname{Res}[f,z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{\mathrm d^{m-1}}{\mathrm dz^{m-1}}\left[(z-z_0)^mf(z)\right]$ |
-| 规则 III（$f=\frac PQ$） | $P(z_0)\ne0$，$Q(z_0)=0$，$Q'(z_0)\ne0$ ⇒ $\operatorname{Res}[f,z_0]=\frac{P(z_0)}{Q'(z_0)}$ |
+| 规则 III（$m$ 阶极点） | $\operatorname{Res}[f,z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{\mathrm d^{m-1}}{\mathrm dz^{m-1}}\left[(z-z_0)^mf(z)\right]$ |
+| 规则 II（$f=\frac PQ$） | $P(z_0)\ne0$，$Q(z_0)=0$，$Q'(z_0)\ne0$ ⇒ $\operatorname{Res}[f,z_0]=\frac{P(z_0)}{Q'(z_0)}$ |
 | 无穷远点的留数 | $\operatorname{Res}[f,\infty]=-c_{-1}=-\operatorname{Res}\left[f\left(\tfrac1z\right)\tfrac1{z^2},0\right]$ |
 | 留数和为零 | $\sum_{k}\operatorname{Res}[f,z_k]+\operatorname{Res}[f,\infty]=0$ |
 | 公式 I：$R(\cos\theta,\sin\theta)$ | $z=e^{i\theta}$，$\cos\theta=\frac{z^2+1}{2z}$，$\sin\theta=\frac{z^2-1}{2iz}$，$\mathrm d\theta=\frac{\mathrm dz}{iz}$；$\int_0^{2\pi}=2\pi i\sum_{\lvert z_k\rvert<1}\operatorname{Res}$ |
@@ -108,3 +108,45 @@
 | 两圆弧围成的区域 | 用 $\frac{z-z_1}{z-z_2}$ 把交点 $z_1,z_2$ 送到 $0,\infty$，得到角形域 |
 | 构造步骤 | 角形 / 带形 → 上半平面（$z^n$ 或 $e^z$）→ 单位圆盘（$\frac{\eta-\lambda}{\eta-\bar\lambda}$） |
 
+## 第 8 章 傅里叶变换
+
+| 内容 | 公式 |
+|---|---|
+| 傅里叶级数（复指数形式） | $f_T(t)=\sum_{n=-\infty}^{+\infty}c_ne^{jn\omega_0t}$，$c_n=\frac1T\int_{-T/2}^{T/2}f_T(t)e^{-jn\omega_0t}\,\mathrm dt$，$\omega_0=\frac{2\pi}T$ |
+| 傅里叶变换 | $F(\omega)=\int_{-\infty}^{+\infty}f(t)e^{-j\omega t}\,\mathrm dt$ |
+| 逆变换 | $f(t)=\frac1{2\pi}\int_{-\infty}^{+\infty}F(\omega)e^{j\omega t}\,\mathrm d\omega$ |
+| 筛选性质 | $\int_{-\infty}^{+\infty}\delta(t-t_0)f(t)\,\mathrm dt=f(t_0)$ |
+| $\delta$ 与 $u$ | $\int_{-\infty}^t\delta(\tau)\,\mathrm d\tau=u(t)$，$u'(t)=\delta(t)$，$\delta(-t)=\delta(t)$ |
+| 重要公式 | $\int_{-\infty}^{+\infty}e^{-j\omega t}\,\mathrm dt=2\pi\delta(\omega)$ |
+| 常用变换对 | $\delta\leftrightarrow1$，$1\leftrightarrow2\pi\delta(\omega)$，$e^{j\omega_0t}\leftrightarrow2\pi\delta(\omega-\omega_0)$，$u(t)\leftrightarrow\frac1{j\omega}+\pi\delta(\omega)$ |
+| 指数信号 | $e^{-\beta t}u(t)\leftrightarrow\frac1{\beta+j\omega}$，$e^{-\beta\lvert t\rvert}\leftrightarrow\frac{2\beta}{\beta^2+\omega^2}$（$\beta>0$） |
+| 矩形 / 抽样 | $1\ (\lvert t\rvert\le\delta)\leftrightarrow\frac{2\sin\delta\omega}{\omega}$；$\frac{\sin\alpha t}{\pi t}\leftrightarrow1\ (\lvert\omega\rvert\le\alpha)$ |
+| 正弦、余弦 | $\cos\omega_0t\leftrightarrow\pi[\delta(\omega+\omega_0)+\delta(\omega-\omega_0)]$，$\sin\omega_0t\leftrightarrow j\pi[\delta(\omega+\omega_0)-\delta(\omega-\omega_0)]$ |
+| 高斯 | $e^{-t^2}\leftrightarrow\sqrt\pi\,e^{-\omega^2/4}$ |
+| 位移 | $f(t-t_0)\leftrightarrow e^{-j\omega t_0}F(\omega)$，$e^{j\omega_0t}f(t)\leftrightarrow F(\omega-\omega_0)$ |
+| 相似 | $f(at)\leftrightarrow\frac1{\lvert a\rvert}F\left(\frac\omega a\right)$ |
+| 微分 | $f^{(n)}(t)\leftrightarrow(j\omega)^nF(\omega)$；$t^nf(t)\leftrightarrow j^nF^{(n)}(\omega)$ |
+| 积分 | $\int_{-\infty}^tf\,\mathrm d\tau\leftrightarrow\frac{F(\omega)}{j\omega}$（$F(0)=0$ 时） |
+| 卷积 | $f_1*f_2=\int_{-\infty}^{+\infty}f_1(\tau)f_2(t-\tau)\,\mathrm d\tau$ |
+| 卷积定理 | $f_1*f_2\leftrightarrow F_1F_2$，$f_1f_2\leftrightarrow\frac1{2\pi}F_1*F_2$ |
+| 帕塞瓦尔 | $\int_{-\infty}^{+\infty}f^2(t)\,\mathrm dt=\frac1{2\pi}\int_{-\infty}^{+\infty}\lvert F(\omega)\rvert^2\,\mathrm d\omega$ |
+
+## 第 9 章 拉普拉斯变换
+
+| 内容 | 公式 |
+|---|---|
+| 定义 | $F(s)=\mathcal L[f(t)]=\int_0^{+\infty}f(t)e^{-st}\,\mathrm dt$，$s=\beta+j\omega$ |
+| 与傅里叶变换的关系 | $\mathcal L[f]=\mathcal F\left[f(t)u(t)e^{-\beta t}\right]$ |
+| 存在定理 | $\lvert f(t)\rvert\le Me^{ct}$ ⇒ $F(s)$ 在 $\operatorname{Re}s>c$ 内存在且解析 |
+| 常用变换 | $\mathcal L[1]=\frac1s$，$\mathcal L[\delta]=1$，$\mathcal L[e^{at}]=\frac1{s-a}$，$\mathcal L[t^m]=\frac{m!}{s^{m+1}}$ |
+| 正弦、余弦 | $\mathcal L[\sin bt]=\frac{b}{s^2+b^2}$，$\mathcal L[\cos bt]=\frac{s}{s^2+b^2}$ |
+| 位移 | $\mathcal L[e^{at}f(t)]=F(s-a)$ |
+| 延迟 | $\mathcal L[f(t-\tau)u(t-\tau)]=e^{-s\tau}F(s)$（$\tau\ge0$） |
+| 相似 | $\mathcal L[f(at)]=\frac1aF\left(\frac sa\right)$（$a>0$） |
+| 微分 | $\mathcal L[f^{(n)}]=s^nF(s)-s^{n-1}f(0)-s^{n-2}f'(0)-\cdots-f^{(n-1)}(0)$ |
+| 象函数的导数 | $F^{(n)}(s)=(-1)^n\mathcal L[t^nf(t)]$ |
+| 积分 | $\mathcal L\left[\int_0^tf\,\mathrm d\tau\right]=\frac{F(s)}s$；$\int_s^{\infty}F(s)\,\mathrm ds=\mathcal L\left[\frac{f(t)}t\right]$ |
+| 周期函数 | $\mathcal L[f]=\frac1{1-e^{-sT}}\int_0^Tf(t)e^{-st}\,\mathrm dt$ |
+| 卷积定理 | $\mathcal L\left[\int_0^tf_1(\tau)f_2(t-\tau)\,\mathrm d\tau\right]=F_1(s)F_2(s)$ |
+| 反演积分 | $f(t)=\frac1{2\pi j}\int_{\beta-j\infty}^{\beta+j\infty}F(s)e^{st}\,\mathrm ds=\sum_k\operatorname{Res}[F(s)e^{st},s_k]$（$t>0$） |
+| 解常微分方程 | 两边取 $\mathcal L$（代入初值）→ 解代数方程得 $Y(s)$ → 求 $\mathcal L^{-1}$ |
