@@ -86,6 +86,9 @@ extra:
     - icon: material/sine-wave
       link: https://cockroach-f.github.io/em-fields-waves/
       name: 姊妹站点：电磁场与电磁波从零到精通
+    - icon: material/atom
+      link: https://cockroach-f.github.io/quantum-mechanics/
+      name: 姊妹站点：量子力学从零到精通
 
 nav:
   - 前言与知识地图: index.md
@@ -107,3 +110,4 @@ nav:
       - 参考资料与致谢: references.md
   - 姊妹站点 · ISAR 文献带读: https://cockroach-f.github.io/isar-tutorial/
   - 姊妹站点 · 电磁场与电磁波从零到精通: https://cockroach-f.github.io/em-fields-waves/
+  - 姊妹站点 · 量子力学从零到精通: https://cockroach-f.github.io/quantum-mechanics/
