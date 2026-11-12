@@ -16,6 +16,8 @@ C_HL = ORANGE
 
 CTEX = TexTemplate(tex_compiler="xelatex", output_format=".xdv")
 CTEX.add_to_preamble(r"\usepackage[UTF8]{ctex}" "\n" r"\usepackage{amsmath,amssymb}")
+# 加宽行宽，避免长句被 TeX 自动折行（排版位置由 manim 控制）
+CTEX.add_to_preamble(r"\setlength{\textwidth}{60cm}\setlength{\hsize}{60cm}\setlength{\linewidth}{60cm}")
 
 
 def MT(tex: str, size: int = 32, color=WHITE, **kw) -> MathTex:

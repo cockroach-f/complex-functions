@@ -70,3 +70,41 @@
 | 洛朗级数 | $f=\sum_{n=-\infty}^{\infty}c_n(z-z_0)^n$，$c_n=\frac1{2\pi i}\oint_C\frac{f(\zeta)}{(\zeta-z_0)^{n+1}}\,\mathrm d\zeta$ |
 | 负幂展开 | $\frac{1}{z-a}=\frac{1}{z}\sum_{n\ge0}\left(\frac az\right)^n$，$\lvert z\rvert>\lvert a\rvert$ |
 | 积分与 $c_{-1}$ | $\oint_Cf\,\mathrm dz=2\pi i\,c_{-1}$ |
+
+## 第 5 章 留数及其应用
+
+| 内容 | 公式 |
+|---|---|
+| 奇点分类（洛朗展开） | 可去：无负幂；$m$ 阶极点：负幂到 $(z-z_0)^{-m}$ 为止；本性：无穷多负幂 |
+| 奇点分类（极限） | $\lim f$ 有限 ⇔ 可去；$=\infty$ ⇔ 极点；不存在且不为 $\infty$ ⇔ 本性 |
+| 零点与极点 | $z_0$ 是 $f$ 的 $m$ 阶零点 ⇔ $z_0$ 是 $\frac1f$ 的 $m$ 阶极点 |
+| 留数 | $\operatorname{Res}[f,z_0]=c_{-1}=\frac{1}{2\pi i}\oint_Cf\,\mathrm dz$ |
+| 留数定理 | $\oint_Cf\,\mathrm dz=2\pi i\sum_{k=1}^n\operatorname{Res}[f,z_k]$ |
+| 规则 I（一阶极点） | $\operatorname{Res}[f,z_0]=\lim_{z\to z_0}(z-z_0)f(z)$ |
+| 规则 II（$m$ 阶极点） | $\operatorname{Res}[f,z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{\mathrm d^{m-1}}{\mathrm dz^{m-1}}\left[(z-z_0)^mf(z)\right]$ |
+| 规则 III（$f=\frac PQ$） | $P(z_0)\ne0$，$Q(z_0)=0$，$Q'(z_0)\ne0$ ⇒ $\operatorname{Res}[f,z_0]=\frac{P(z_0)}{Q'(z_0)}$ |
+| 无穷远点的留数 | $\operatorname{Res}[f,\infty]=-c_{-1}=-\operatorname{Res}\left[f\left(\tfrac1z\right)\tfrac1{z^2},0\right]$ |
+| 留数和为零 | $\sum_{k}\operatorname{Res}[f,z_k]+\operatorname{Res}[f,\infty]=0$ |
+| 公式 I：$R(\cos\theta,\sin\theta)$ | $z=e^{i\theta}$，$\cos\theta=\frac{z^2+1}{2z}$，$\sin\theta=\frac{z^2-1}{2iz}$，$\mathrm d\theta=\frac{\mathrm dz}{iz}$；$\int_0^{2\pi}=2\pi i\sum_{\lvert z_k\rvert<1}\operatorname{Res}$ |
+| 公式 II：$\frac{P}{Q}$ | $\deg Q\ge\deg P+2$，$Q$ 在实轴上无零点 ⇒ $\int_{-\infty}^{\infty}R(x)\,\mathrm dx=2\pi i\sum_{\operatorname{Im}z_k>0}\operatorname{Res}[R,z_k]$ |
+| 公式 III：$R(x)e^{iax}$，$a>0$ | $\deg Q\ge\deg P+1$ ⇒ $\int_{-\infty}^{\infty}R(x)e^{iax}\,\mathrm dx=2\pi i\sum_{\operatorname{Im}z_k>0}\operatorname{Res}[R(z)e^{iaz},z_k]$，再取实部、虚部 |
+| 约当引理 | $\left\lvert\int_{C_R}R(z)e^{iaz}\,\mathrm dz\right\rvert\to0$（$R(z)\to0$ 一致） |
+| 狄利克雷积分 | $\int_0^{+\infty}\frac{\sin x}{x}\,\mathrm dx=\frac\pi2$ |
+
+## 第 6 章 共形映射
+
+| 内容 | 公式 |
+|---|---|
+| 保角性 | $f'(z_0)\ne0$：所有曲线转过 $\arg f'(z_0)$，伸缩率 $\lvert f'(z_0)\rvert$ |
+| 分式线性映射 | $w=\frac{az+b}{cz+d}$，$ad-bc\ne0$ |
+| 分解 | 平移 $z+b$、旋转伸缩 $az$、反演 $\frac1z$ 的复合 |
+| 交比（三点定映射） | $\frac{w-w_1}{w-w_2}\cdot\frac{w_3-w_2}{w_3-w_1}=\frac{z-z_1}{z-z_2}\cdot\frac{z_3-z_2}{z_3-z_1}$ |
+| 性质 | 保角、保圆（直线是过 $\infty$ 的圆）、保对称点 |
+| 上半平面 → 单位圆盘 | $w=e^{i\theta}\frac{z-\lambda}{z-\bar\lambda}$，$\operatorname{Im}\lambda>0$ |
+| 单位圆盘 → 单位圆盘 | $w=e^{i\theta}\frac{z-\alpha}{1-\bar\alpha z}$，$\lvert\alpha\rvert<1$ |
+| 上半平面 → 上半平面 | $w=\frac{az+b}{cz+d}$，$a,b,c,d\in\mathbb R$，$ad-bc>0$ |
+| 幂函数 | $w=z^n$：角形 $0<\arg z<\alpha$ → $0<\arg w<n\alpha$（$n\alpha\le2\pi$） |
+| 指数函数 | $w=e^z$：带形 $0<\operatorname{Im}z<a$ → 角形 $0<\arg w<a$（$a\le2\pi$） |
+| 两圆弧围成的区域 | 用 $\frac{z-z_1}{z-z_2}$ 把交点 $z_1,z_2$ 送到 $0,\infty$，得到角形域 |
+| 构造步骤 | 角形 / 带形 → 上半平面（$z^n$ 或 $e^z$）→ 单位圆盘（$\frac{\eta-\lambda}{\eta-\bar\lambda}$） |
+
