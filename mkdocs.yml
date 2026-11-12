@@ -83,6 +83,9 @@ extra:
     - icon: material/radar
       link: https://cockroach-f.github.io/isar-tutorial/
       name: 姊妹站点：ISAR 目标识别入门与文献带读
+    - icon: material/sine-wave
+      link: https://cockroach-f.github.io/em-fields-waves/
+      name: 姊妹站点：电磁场与电磁波从零到精通
 
 nav:
   - 前言与知识地图: index.md
@@ -100,3 +103,4 @@ nav:
       - 公式速查: formulas.md
       - 参考资料与致谢: references.md
   - 姊妹站点 · ISAR 文献带读: https://cockroach-f.github.io/isar-tutorial/
+  - 姊妹站点 · 电磁场与电磁波从零到精通: https://cockroach-f.github.io/em-fields-waves/
