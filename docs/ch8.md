@@ -582,8 +582,8 @@ $$\mathcal F[\delta(t)]=\int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\,\mathrm
 
     ```mermaid
     flowchart TD
-        FS["傅里叶级数<br/>f_T = Σ c_n e^{jnω₀t}<br/>离散频谱 c_n"] -- "T → ∞" --> FI["傅里叶积分公式<br/>f = (1/2π)∫[∫f e^{-jωτ}dτ] e^{jωt}dω"]
-        FI --> FT["傅里叶变换对<br/>F(ω) = ∫ f e^{-jωt} dt<br/>f = (1/2π)∫ F e^{jωt} dω"]
+        FS["傅里叶级数<br/>f_T = Σ c_n exp(jnω₀t)<br/>离散频谱 c_n"] -- "T → ∞" --> FI["傅里叶积分公式<br/>f = (1/2π)∫[∫f exp(−jωτ) dτ] exp(jωt) dω"]
+        FI --> FT["傅里叶变换对<br/>F(ω) = ∫ f exp(−jωt) dt<br/>f = (1/2π)∫ F exp(jωt) dω"]
         DL["δ 函数<br/>筛选性质 · 偶函数 · ∫δ = u"] --> GFT["广义傅里叶变换<br/>δ ↔ 1，1 ↔ 2πδ(ω)<br/>cos ω₀t、u(t)、周期函数"]
         FT --> GFT
         FT --> PR["性质<br/>线性 · 时移/频移 · 相似<br/>微分 jω · 积分 1/(jω) · 帕塞瓦尔"]
@@ -593,7 +593,7 @@ $$\mathcal F[\delta(t)]=\int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\,\mathrm
         C5["第5章 留数 + 约当引理"] -.逆变换：t>0 上半平面闭合.-> FT
         PR --> APP["应用：解微分方程、频谱分析<br/>调制、滤波 Y = HX"]
         CV --> APP
-        FT -.乘衰减因子 e^{-σt}.-> LAP["第9章 拉普拉斯变换"]
+        FT -.乘衰减因子 exp(−σt).-> LAP["第9章 拉普拉斯变换"]
     ```
 
     **常用傅里叶变换对**（$\beta>0$）
