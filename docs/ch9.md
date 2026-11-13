@@ -815,15 +815,15 @@ $H(s)$ 只由系统本身决定，与输入无关。它有两个重要的解释�
 
     ```mermaid
     flowchart TD
-        FT["第8章：傅里叶变换<br/>要求绝对可积"] --> DEF["乘 u(t) 和 e^(−σt)<br/>F(s)=∫₀^∞ f(t)e^(−st)dt, s=σ+jω"]
+        FT["第8章：傅里叶变换<br/>要求绝对可积"] --> DEF["乘 u(t) 和 exp(−σt)<br/>F(s)=∫(0→∞) f(t) exp(−st) dt, s=σ+jω"]
         DEF --> EX["存在定理：指数级 + 分段连续<br/>⇒ Re s > c 内存在且解析"]
-        EX --> TAB["常用变换对<br/>1, δ, tᵐ, e^(at), sin, cos"]
+        EX --> TAB["常用变换对<br/>1, δ, tᵐ, exp(at), sin, cos"]
         DEF --> PROP["性质<br/>线性 · 相似 · 延迟 · 位移<br/>微分 · 积分 · 初值终值"]
         PROP --> CONV["卷积定理<br/>L[f₁*f₂]=F₁F₂"]
         TAB --> INV["逆变换"]
         PROP --> INV
         INV --> PF["部分分式 + 查表"]
-        INV --> RES["反演积分 + 约当引理<br/>f(t)=Σ Res[F(s)e^(st), sₖ]"]
+        INV --> RES["反演积分 + 约当引理<br/>f(t)=Σ Res[F(s) exp(st), sₖ]"]
         R5["第5章：留数定理<br/>约当引理"] --> RES
         PROP --> ODE["解常微分方程（组）<br/>求导 → 乘 s"]
         CONV --> IE["卷积型积分方程"]

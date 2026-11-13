@@ -28,7 +28,7 @@ flowchart TB
     subgraph C2["第 2 章 解析函数：核心条件"]
         direction LR
         B1["复导数<br/>C-R 方程"] --> B2["解析函数<br/>调和函数"]
-        B1 --> B3["初等函数<br/>e^z · Ln z · z^a · sin z"]
+        B1 --> B3["初等函数<br/>exp(z) · Ln z · z 的 a 次 · sin z"]
     end
     subgraph C3["第 3 章 复积分：积分只和“洞”有关"]
         direction LR
@@ -53,14 +53,14 @@ flowchart TB
     E3 -- "c₋₁ 系数" --> F2
     A4 -. "∞ 处留数" .-> F2
     A4 -. "扩充复平面" .-> G2
-    B3 -- "e^z, z^n" --> G3
-    subgraph C8["第 8–9 章 积分变换：把信号拆成 e^{jωt} / e^{st}"]
+    B3 -- "exp(z), zⁿ" --> G3
+    subgraph C8["第 8–9 章 积分变换：把信号拆成 exp(jωt) / exp(st)"]
         direction LR
         H1["傅里叶变换<br/>δ 函数 · 卷积定理"] --> H2["拉普拉斯变换<br/>右半平面内解析"] --> H3["留数求逆变换<br/>解微分方程"]
     end
-    B3 -- "e^{jωt}" --> H1
+    B3 -- "exp(jωt)" --> H1
     F3 -- "约当引理" --> H1
-    F2 -- "Σ Res[F e^{st}]" --> H3
+    F2 -- "Σ Res[F exp(st)]" --> H3
 ```
 
 !!! info "一句话串起整门课"
