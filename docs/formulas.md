@@ -66,7 +66,7 @@
 | $e^z$ | $\sum\frac{z^n}{n!}$，$\lvert z\rvert<\infty$ |
 | $\sin z,\ \cos z$ | $\sum\frac{(-1)^nz^{2n+1}}{(2n+1)!}$，$\sum\frac{(-1)^nz^{2n}}{(2n)!}$ |
 | $\ln(1+z)$ | $\sum_{n\ge0}\frac{(-1)^nz^{n+1}}{n+1}$，$\lvert z\rvert<1$ |
-| $(1+z)^\alpha$ | $1+\alpha z+\frac{\alpha(\alpha-1)}{2!}z^2+\cdots$，$\lvert z\rvert<1$ |
+| $(1+z)^\alpha$ | $1+\alpha z+\frac{\alpha(\alpha-1)}{2!}z^2+\cdots$，$\lvert z\rvert<1$（$\alpha$ 为非负整数时是多项式，$\lvert z\rvert<\infty$） |
 | 洛朗级数 | $f=\sum_{n=-\infty}^{\infty}c_n(z-z_0)^n$，$c_n=\frac1{2\pi i}\oint_C\frac{f(\zeta)}{(\zeta-z_0)^{n+1}}\,\mathrm d\zeta$ |
 | 负幂展开 | $\frac{1}{z-a}=\frac{1}{z}\sum_{n\ge0}\left(\frac az\right)^n$，$\lvert z\rvert>\lvert a\rvert$ |
 | 积分与 $c_{-1}$ | $\oint_Cf\,\mathrm dz=2\pi i\,c_{-1}$ |
@@ -87,8 +87,8 @@
 | 留数和为零 | $\sum_{k}\operatorname{Res}[f,z_k]+\operatorname{Res}[f,\infty]=0$ |
 | 公式 I：$R(\cos\theta,\sin\theta)$ | $z=e^{i\theta}$，$\cos\theta=\frac{z^2+1}{2z}$，$\sin\theta=\frac{z^2-1}{2iz}$，$\mathrm d\theta=\frac{\mathrm dz}{iz}$；$\int_0^{2\pi}=2\pi i\sum_{\lvert z_k\rvert<1}\operatorname{Res}$ |
 | 公式 II：$\frac{P}{Q}$ | $\deg Q\ge\deg P+2$，$Q$ 在实轴上无零点 ⇒ $\int_{-\infty}^{\infty}R(x)\,\mathrm dx=2\pi i\sum_{\operatorname{Im}z_k>0}\operatorname{Res}[R,z_k]$ |
-| 公式 III：$R(x)e^{iax}$，$a>0$ | $\deg Q\ge\deg P+1$ ⇒ $\int_{-\infty}^{\infty}R(x)e^{iax}\,\mathrm dx=2\pi i\sum_{\operatorname{Im}z_k>0}\operatorname{Res}[R(z)e^{iaz},z_k]$，再取实部、虚部 |
-| 约当引理 | $\left\lvert\int_{C_R}R(z)e^{iaz}\,\mathrm dz\right\rvert\to0$（$R(z)\to0$ 一致） |
+| 公式 III：$R(x)e^{iax}$，$a>0$ | $\deg Q\ge\deg P+1$，$Q$ 在实轴上无零点 ⇒ $\int_{-\infty}^{\infty}R(x)e^{iax}\,\mathrm dx=2\pi i\sum_{\operatorname{Im}z_k>0}\operatorname{Res}[R(z)e^{iaz},z_k]$，再取实部、虚部 |
+| 约当引理 | $a>0$，$C_R$ 为上半大圆弧，$R(z)\to0$ 一致 ⇒ $\int_{C_R}R(z)e^{iaz}\,\mathrm dz\to0$（$R\to\infty$） |
 | 狄利克雷积分 | $\int_0^{+\infty}\frac{\sin x}{x}\,\mathrm dx=\frac\pi2$ |
 
 ## 第 6 章 共形映射
@@ -126,10 +126,10 @@
 | 位移 | $f(t-t_0)\leftrightarrow e^{-j\omega t_0}F(\omega)$，$e^{j\omega_0t}f(t)\leftrightarrow F(\omega-\omega_0)$ |
 | 相似 | $f(at)\leftrightarrow\frac1{\lvert a\rvert}F\left(\frac\omega a\right)$ |
 | 微分 | $f^{(n)}(t)\leftrightarrow(j\omega)^nF(\omega)$；$t^nf(t)\leftrightarrow j^nF^{(n)}(\omega)$ |
-| 积分 | $\int_{-\infty}^tf\,\mathrm d\tau\leftrightarrow\frac{F(\omega)}{j\omega}$（$F(0)=0$ 时） |
+| 积分 | $\int_{-\infty}^tf\,\mathrm d\tau\leftrightarrow\frac{F(\omega)}{j\omega}+\pi F(0)\delta(\omega)$；$F(0)=0$ 时只剩 $\frac{F(\omega)}{j\omega}$ |
 | 卷积 | $f_1*f_2=\int_{-\infty}^{+\infty}f_1(\tau)f_2(t-\tau)\,\mathrm d\tau$ |
 | 卷积定理 | $f_1*f_2\leftrightarrow F_1F_2$，$f_1f_2\leftrightarrow\frac1{2\pi}F_1*F_2$ |
-| 帕塞瓦尔 | $\int_{-\infty}^{+\infty}f^2(t)\,\mathrm dt=\frac1{2\pi}\int_{-\infty}^{+\infty}\lvert F(\omega)\rvert^2\,\mathrm d\omega$ |
+| 帕塞瓦尔 | $\int_{-\infty}^{+\infty}\lvert f(t)\rvert^2\,\mathrm dt=\frac1{2\pi}\int_{-\infty}^{+\infty}\lvert F(\omega)\rvert^2\,\mathrm d\omega$ |
 
 ## 第 9 章 拉普拉斯变换
 

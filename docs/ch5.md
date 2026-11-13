@@ -528,7 +528,7 @@ $$\mathrm d\theta=\frac{\mathrm dz}{iz},\qquad\cos\theta=\frac{z+z^{-1}}{2},\qqu
         THM --> T1["∫(0→2π) R(cos, sin) dθ<br/>z = exp(iθ)"]
         THM --> T2["∫ R(x) dx<br/>上半大圆"]
         THM --> T3["∫ R(x) exp(iax) dx<br/>约当引理"]
-        THM -.后续课程.-> LAP["拉普拉斯 / Z 反变换"]
+        THM -.->|"后续课程"| LAP["拉普拉斯 / Z 反变换"]
     ```
 
     **核心结论**

@@ -402,7 +402,7 @@ $z=x+iy\mapsto w=e^xe^{iy}$：$x$ 控制模，$y$ 控制辐角（第 2 章动画
         P2 --> ELEM["初等函数<br/>zⁿ：角形张角 ×n<br/>exp(z)：带形 → 角形"]
         STD --> COMB["组合：交点→0,∞ → 角形<br/>→ 幂函数 → 上半平面 → 单位圆"]
         ELEM --> COMB
-        COMB -.应用.-> APP["二维静电场 / Smith 圆图"]
+        COMB -.->|"应用"| APP["二维静电场 / Smith 圆图"]
     ```
 
     **核心结论**

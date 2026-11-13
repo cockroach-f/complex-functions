@@ -394,7 +394,11 @@ $$\mathcal F[\delta(t)]=\int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\,\mathrm
 
     $$\mathcal F\left[\int_{-\infty}^{t}f(\tau)\,\mathrm d\tau\right]=\frac{1}{j\omega}F(\omega).$$
 
-（$g'=f$，对 $g$ 用微分性质：$j\omega\,\mathcal F[g]=F$。）若 $F(0)\ne0$，$g(t)$ 在 $+\infty$ 处趋于常数 $F(0)$，结论修正为 $\mathcal F[g]=\frac{F(\omega)}{j\omega}+\pi F(0)\delta(\omega)$；取 $f=\delta$ 就回到 $\mathcal F[u(t)]=\frac1{j\omega}+\pi\delta(\omega)$。
+    一般情形（$F(0)$ 不必为零）：
+
+    $$\mathcal F\left[\int_{-\infty}^{t}f(\tau)\,\mathrm d\tau\right]=\frac{F(\omega)}{j\omega}+\pi F(0)\,\delta(\omega).$$
+
+（$g'=f$，对 $g$ 用微分性质：$j\omega\,\mathcal F[g]=F$。）若 $F(0)\ne0$，$g(t)$ 在 $+\infty$ 处趋于常数 $F(0)$，不再趋于零，要用一般形式。推导：$g=f*u$，由卷积定理 $\mathcal F[g]=F(\omega)\left[\frac1{j\omega}+\pi\delta(\omega)\right]=\frac{F(\omega)}{j\omega}+\pi F(0)\delta(\omega)$（最后一步用 $F(\omega)\delta(\omega)=F(0)\delta(\omega)$）。取 $f=\delta$ 就回到 $\mathcal F[u(t)]=\frac1{j\omega}+\pi\delta(\omega)$。
 
 !!! theorem "性质 8.9（帕塞瓦尔等式）"
 
@@ -582,18 +586,18 @@ $$\mathcal F[\delta(t)]=\int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\,\mathrm
 
     ```mermaid
     flowchart TD
-        FS["傅里叶级数<br/>f_T = Σ c_n exp(jnω₀t)<br/>离散频谱 c_n"] -- "T → ∞" --> FI["傅里叶积分公式<br/>f = (1/2π)∫[∫f exp(−jωτ) dτ] exp(jωt) dω"]
+        FS["傅里叶级数<br/>f_T = Σ c_n exp(jnω₀t)<br/>离散频谱 c_n"] -->|"T → ∞"| FI["傅里叶积分公式<br/>f = (1/2π)∫[∫f exp(−jωτ) dτ] exp(jωt) dω"]
         FI --> FT["傅里叶变换对<br/>F(ω) = ∫ f exp(−jωt) dt<br/>f = (1/2π)∫ F exp(jωt) dω"]
         DL["δ 函数<br/>筛选性质 · 偶函数 · ∫δ = u"] --> GFT["广义傅里叶变换<br/>δ ↔ 1，1 ↔ 2πδ(ω)<br/>cos ω₀t、u(t)、周期函数"]
         FT --> GFT
-        FT --> PR["性质<br/>线性 · 时移/频移 · 相似<br/>微分 jω · 积分 1/(jω) · 帕塞瓦尔"]
+        FT --> PR["性质<br/>线性 · 时移/频移 · 相似<br/>微分 jω · 积分 F/(jω) + πF(0)δ(ω) · 帕塞瓦尔"]
         FT --> CV["卷积 f₁*f₂<br/>卷积定理：F₁·F₂"]
         DL --> CV
-        C3["第3章 柯西定理"] -.平移积分路径.-> FT
-        C5["第5章 留数 + 约当引理"] -.逆变换：t>0 上半平面闭合.-> FT
+        C3["第3章 柯西定理"] -.->|"平移积分路径"| FT
+        C5["第5章 留数 + 约当引理"] -.->|"逆变换：t>0 上半平面闭合"| FT
         PR --> APP["应用：解微分方程、频谱分析<br/>调制、滤波 Y = HX"]
         CV --> APP
-        FT -.乘衰减因子 exp(−σt).-> LAP["第9章 拉普拉斯变换"]
+        FT -.->|"乘衰减因子 exp(−σt)"| LAP["第9章 拉普拉斯变换"]
     ```
 
     **常用傅里叶变换对**（$\beta>0$）
@@ -629,9 +633,10 @@ $$\mathcal F[\delta(t)]=\int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\,\mathrm
     | 时域微分 | $f^{(n)}(t)$ | $(j\omega)^nF(\omega)$ |
     | 频域微分 | $t^nf(t)$ | $j^nF^{(n)}(\omega)$ |
     | 积分（$F(0)=0$） | $\int_{-\infty}^tf(\tau)\,\mathrm d\tau$ | $\frac{1}{j\omega}F(\omega)$ |
+    | 积分（一般） | $\int_{-\infty}^tf(\tau)\,\mathrm d\tau$ | $\frac{1}{j\omega}F(\omega)+\pi F(0)\delta(\omega)$ |
     | 时域卷积 | $f*g$ | $F\cdot G$ |
     | 频域卷积 | $f\cdot g$ | $\frac1{2\pi}F*G$ |
-    | 帕塞瓦尔 | $\int f^2\,\mathrm dt$ | $\frac1{2\pi}\int\lvert F\rvert^2\,\mathrm d\omega$ |
+    | 帕塞瓦尔 | $\int\lvert f\rvert^2\,\mathrm dt$ | $\frac1{2\pi}\int\lvert F\rvert^2\,\mathrm d\omega$ |
 
     **方法清单**
 
@@ -759,4 +764,4 @@ $$\mathcal F[\delta(t)]=\int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\,\mathrm
 
 ---
 
-**下一章预告。** 傅里叶变换要求信号绝对可积，连 $u(t)$、$\sin t$ 都要借助 $\delta$ 函数，$e^{t}$ 这样增长的信号则根本没有傅里叶变换。第 9 章给信号乘上衰减因子 $e^{-\sigma t}$，只看 $t\ge0$ 的部分，再做傅里叶变换，就得到**拉普拉斯变换** $F(s)=\int_0^{+\infty}f(t)e^{-st}\,\mathrm dt$，其中 $s=\sigma+j\omega$。它在一个右半平面内解析，反演要用留数，正好用上第 2–5 章的全部工具。→ [第 9 章 拉普拉斯变换](ch9.md)
+**下一章预告。** 傅里叶变换要求信号绝对可积，连 $u(t)$、$\sin t$ 都要借助 $\delta$ 函数，$e^{t}$ 这样增长的信号则根本没有傅里叶变换。第 9 章给信号乘上衰减因子 $e^{-\sigma t}$，只看 $t\ge0$ 的部分，再做傅里叶变换，就得到**拉普拉斯变换** $F(s)=\int_0^{+\infty}f(t)e^{-st}\,\mathrm dt$，其中 $s=\sigma+j\omega$。它在某个半平面 $\operatorname{Re}s>c$ 内解析，反演要用留数，正好用上第 2–5 章的全部工具。→ [第 9 章 拉普拉斯变换](ch9.md)

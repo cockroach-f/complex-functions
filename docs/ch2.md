@@ -471,8 +471,8 @@ $$\operatorname{Arccos}z=-i\operatorname{Ln}\left(z+\sqrt{z^2-1}\right),\qquad \
         LN --> P["z 的 α 次 = exp(α Ln z)"]
         E --> TR["sin z, cos z：无界"]
         LN --> AT["Arcsin, Arccos, Arctan"]
-        J -.第6章.-> CF["共形映射"]
-        A -.第3章.-> CI["柯西积分定理"]
+        J -.->|"第6章"| CF["共形映射"]
+        A -.->|"第3章"| CI["柯西积分定理"]
     ```
 
     **核心结论**

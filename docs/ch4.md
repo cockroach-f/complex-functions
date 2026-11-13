@@ -238,9 +238,9 @@ $$\sum_{n=0}^\infty z^n=1+z+z^2+\cdots,\qquad S_N=\frac{1-z^{N+1}}{1-z}\ (z\ne1)
     | $\sin z$ | $\displaystyle\sum_{n=0}^\infty\frac{(-1)^nz^{2n+1}}{(2n+1)!}=z-\frac{z^3}{3!}+\cdots$ | $\lvert z\rvert<\infty$ |
     | $\cos z$ | $\displaystyle\sum_{n=0}^\infty\frac{(-1)^nz^{2n}}{(2n)!}=1-\frac{z^2}{2!}+\cdots$ | $\lvert z\rvert<\infty$ |
     | $\ln(1+z)$（主值） | $\displaystyle\sum_{n=0}^\infty\frac{(-1)^nz^{n+1}}{n+1}=z-\frac{z^2}{2}+\frac{z^3}{3}-\cdots$ | $\lvert z\rvert<1$ |
-    | $(1+z)^\alpha$（主值） | $\displaystyle1+\alpha z+\frac{\alpha(\alpha-1)}{2!}z^2+\cdots$ | $\lvert z\rvert<1$ |
+    | $(1+z)^\alpha$（主值） | $\displaystyle1+\alpha z+\frac{\alpha(\alpha-1)}{2!}z^2+\cdots$ | $\lvert z\rvert<1$（$\alpha$ 为非负整数时级数是多项式，$\lvert z\rvert<\infty$） |
 
-    收敛范围都可以由推论 2 直接读出：$\frac1{1\mp z}$ 的奇点为 $\pm1$；$\ln(1+z)$、$(1+z)^\alpha$ 的支点为 $-1$；$e^z,\sin z,\cos z$ 没有奇点。
+    收敛范围都可以由推论 2 直接读出：$\frac1{1\mp z}$ 的奇点为 $\pm1$；$\ln(1+z)$、$(1+z)^\alpha$ 的支点为 $-1$；$e^z,\sin z,\cos z$ 没有奇点。例外是 $\alpha=0,1,2,\dots$：此时 $(1+z)^\alpha$ 是多项式，没有奇点，二项式系数 $\binom{\alpha}{n}$ 在 $n>\alpha$ 时全为零，级数只有有限项，收敛半径为 $\infty$。（$\alpha$ 为负整数时 $-1$ 是极点而不是支点，收敛半径仍为 $1$。）
 
 ### 4.3.3 展开方法
 
@@ -481,8 +481,8 @@ $$\sum_{n=-\infty}^{+\infty}c_n(z-z_0)^n=\underbrace{\sum_{n=1}^{\infty}c_{-n}(z
         TAY --> LAU["洛朗定理（圆环内）<br/>正幂 + 负幂"]
         LAU --> METH["分圆环 → 部分分式<br/>→ 公比模 < 1"]
         LAU --> CM1["∮ f dz = 2πi c₋₁"]
-        CM1 -.第5章.-> RES["留数定理"]
-        LAU -.第5章.-> SING["孤立奇点分类"]
+        CM1 -.->|"第5章"| RES["留数定理"]
+        LAU -.->|"第5章"| SING["孤立奇点分类"]
     ```
 
     **核心结论**
