@@ -476,7 +476,7 @@ $$\sum_{n=-\infty}^{+\infty}c_n(z-z_0)^n=\underbrace{\sum_{n=1}^{\infty}c_{-n}(z
         PS --> PROP["和函数解析<br/>逐项求导 / 积分"]
         HD["第3章：高阶导数公式"] --> TAY["泰勒定理<br/>cₙ = f⁽ⁿ⁾(z₀)/n!"]
         TAY --> NEAR["R = 到最近奇点的距离"]
-        TAY --> STD["e^z, sin z, cos z,<br/>1/(1−z), ln(1+z), (1+z)^α"]
+        TAY --> STD["exp(z), sin z, cos z,<br/>1/(1−z), ln(1+z), (1+z) 的 α 次"]
         PROP --> TAY
         TAY --> LAU["洛朗定理（圆环内）<br/>正幂 + 负幂"]
         LAU --> METH["分圆环 → 部分分式<br/>→ 公比模 < 1"]

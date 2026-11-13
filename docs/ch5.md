@@ -519,15 +519,15 @@ $$\mathrm d\theta=\frac{\mathrm dz}{iz},\qquad\cos\theta=\frac{z+z^{-1}}{2},\qqu
         CLS --> RM["可去奇点<br/>lim f 有限"]
         CLS --> PO["m 阶极点<br/>lim f = ∞"]
         CLS --> ES["本性奇点<br/>无极限"]
-        ZERO["零点阶数<br/>f^(k)(z₀)=0, k<m"] --> PO
+        ZERO["零点阶数<br/>z₀ 处前 m−1 阶导数为 0"] --> PO
         LAU --> RES["留数 Res = c₋₁"]
         RES --> RULE["计算规则<br/>I: lim (z−z₀)f · II: P/Q' · III: m 阶公式<br/>本性奇点：洛朗展开"]
         RES --> INF["Res[f,∞] = −c₋₁<br/>所有留数之和 = 0"]
         RULE --> THM["留数定理<br/>∮ f dz = 2πi Σ Res"]
         INF --> THM
-        THM --> T1["∫₀^2π R(cos, sin) dθ<br/>z = e^{iθ}"]
+        THM --> T1["∫(0→2π) R(cos, sin) dθ<br/>z = exp(iθ)"]
         THM --> T2["∫ R(x) dx<br/>上半大圆"]
-        THM --> T3["∫ R(x) e^{iax} dx<br/>约当引理"]
+        THM --> T3["∫ R(x) exp(iax) dx<br/>约当引理"]
         THM -.后续课程.-> LAP["拉普拉斯 / Z 反变换"]
     ```
 
