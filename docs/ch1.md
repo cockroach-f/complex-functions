@@ -641,9 +641,9 @@ $$w=f(z)=f(x+iy)=u(x,y)+iv(x,y),$$
     flowchart TD
         Z["复数 z = x + iy"] --> P["复平面：点 / 向量"]
         P --> MA["模 |z| 与辐角 Arg z<br/>主辐角 arg z ∈ (−π, π]"]
-        MA --> EX["三角式 r(cosθ + i sinθ)<br/>指数式 r e^{iθ}"]
+        MA --> EX["三角式 r(cosθ + i sinθ)<br/>指数式 r exp(iθ)"]
         EX --> MUL["乘除 = 模乘除、辐角加减<br/>（旋转 + 伸缩）"]
-        MUL --> POW["乘幂：棣莫弗 zⁿ = rⁿ e^{inθ}"]
+        MUL --> POW["乘幂：棣莫弗 zⁿ = rⁿ exp(inθ)"]
         POW --> ROOT["方根：n 个根均布在圆上<br/>→ 多值性"]
         P --> SET["点集：邻域、开集、区域<br/>单连通 / 多连通"]
         SET --> CUR["曲线：参数式 z(t)、简单闭曲线<br/>正向 = 区域在左"]
