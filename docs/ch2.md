@@ -30,12 +30,13 @@
     (1) 求 $f(z)=z^2$ 与 $g(z)=\dfrac1z$ 的导数；(2) 讨论 $h(z)=\bar z$ 的可导性。
 
     **解。** (1)
+
     $$\lim_{\Delta z\to0}\frac{(z+\Delta z)^2-z^2}{\Delta z}=\lim_{\Delta z\to0}(2z+\Delta z)=2z,\qquad
     \lim_{\Delta z\to0}\frac{\frac{1}{z+\Delta z}-\frac1z}{\Delta z}=\lim_{\Delta z\to0}\frac{-1}{z(z+\Delta z)}=-\frac{1}{z^2}\ (z\ne0).$$
 
     同理 $(z^n)'=nz^{n-1}$（$n$ 为正整数），$(C)'=0$。
 
-    (2) $\dfrac{\Delta h}{\Delta z}=\dfrac{\overline{z+\Delta z}-\bar z}{\Delta z}=\dfrac{\overline{\Delta z}}{\Delta z}$。令 $\Delta z=re^{i\theta}$，则它等于 $e^{-2i\theta}$，随方向变化，极限不存在（正是第 1 章例题 1.12 的 $\bar z/z$）。所以 $\bar z$ **处处不可导**——尽管它的实部 $x$、虚部 $-y$ 都是最光滑的函数。
+    (2) $\dfrac{\Delta h}{\Delta z}=\dfrac{\overline{z+\Delta z}-\bar z}{\Delta z}=\dfrac{\overline{\Delta z}}{\Delta z}$。令 $\Delta z=re^{i\theta}$，则它等于 $e^{-2i\theta}$，随方向变化，极限不存在（与第 1 章例题 1.12 的 $z/\bar z$ 同理）。所以 $\bar z$ **处处不可导**——尽管它的实部 $x$、虚部 $-y$ 都是最光滑的函数。
 
 !!! definition "定义（微分）"
 
@@ -100,9 +101,11 @@ $$[f(g(z))]'=f'(g(z))\,g'(z),\qquad \varphi'(w)=\frac{1}{f'(z)}\ \ (z=\varphi(w)
 
     1. $u(x,y),\ v(x,y)$ 在点 $(x,y)$ **可微**；
     2. 在该点满足**柯西-黎曼方程（C-R 方程）**
+
     $$\boxed{\ \frac{\partial u}{\partial x}=\frac{\partial v}{\partial y},\qquad \frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}\ }$$
 
     此时
+
     $$f'(z)=\frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}=\frac{\partial v}{\partial y}-i\frac{\partial u}{\partial y}=\frac{\partial u}{\partial x}-i\frac{\partial u}{\partial y}=\frac{\partial v}{\partial y}+i\frac{\partial v}{\partial x}.$$
 
 ??? proof "证明"
@@ -240,7 +243,9 @@ $$\nabla u\cdot\nabla v=u_xv_x+u_yv_y\overset{\text{C-R}}{=}u_xv_x+(-v_x)u_x=0 .
     **① 偏积分法。** 由 $v_y=u_x$ 对 $y$ 积分：$v=\int u_x\,\mathrm dy+\varphi(x)$；再代入 $v_x=-u_y$ 定出 $\varphi'(x)$，积分得 $\varphi(x)$。
 
     **② 全微分（曲线积分）法。** $\mathrm dv=v_x\,\mathrm dx+v_y\,\mathrm dy=-u_y\,\mathrm dx+u_x\,\mathrm dy$，它是全微分（因为 $u$ 调和），故
+
     $$v(x,y)=\int_{(x_0,y_0)}^{(x,y)}-u_y\,\mathrm dx+u_x\,\mathrm dy+C,$$
+
     通常沿折线 $(x_0,y_0)\to(x,y_0)\to(x,y)$ 积分。
 
     **③ 不定积分法（最快）。** $f'(z)=u_x-iu_y$。把右边写成 $z$ 的函数：**令 $y=0,\ x=z$**（解析函数由它在实轴上的值唯一确定），得 $f'(z)=U(z)$，积分得 $f(z)=\int U(z)\,\mathrm dz+C$。已知 $v$ 时用 $f'(z)=v_y+iv_x$。
@@ -280,6 +285,7 @@ $$\nabla u\cdot\nabla v=u_xv_x+u_yv_y\overset{\text{C-R}}{=}u_xv_x+(-v_x)u_x=0 .
 !!! definition "定义 2.5（指数函数）"
 
     对 $z=x+iy$，定义
+
     $$e^z=\exp z=e^x(\cos y+i\sin y).$$
 
 由例题 2.4(2) 与定义直接验证，$e^z$ 有下列性质：
@@ -335,7 +341,9 @@ $$\boxed{\operatorname{Ln}z=\ln|z|+i\operatorname{Arg}z=\ln|z|+i\arg z+2k\pi i,\
     1. 定义域为 $z\ne0$；
     2. **运算法则（集合意义下）**：$\operatorname{Ln}(z_1z_2)=\operatorname{Ln}z_1+\operatorname{Ln}z_2$，$\operatorname{Ln}\dfrac{z_1}{z_2}=\operatorname{Ln}z_1-\operatorname{Ln}z_2$；但 $\operatorname{Ln}z^n\ne n\operatorname{Ln}z$，$\operatorname{Ln}\sqrt[n]z=\frac1n\operatorname{Ln}z$；
     3. **解析性**：主值 $\ln z$（以及每个分支）在**除去原点和负实轴**的区域 $D_0=\mathbb C\setminus(-\infty,0]$ 内解析，且
+
     $$(\ln z)'=\frac1z,\qquad (\operatorname{Ln}z)'=\frac1z\ (\text{各分支});$$
+
     在负实轴上，$\arg z$ 从 $\pi$ 跳到 $-\pi$（第 1 章例题 1.13），$\ln z$ 不连续，更不解析。负实轴称为 $\ln z$ 的**支割线**。
 
 ??? proof "$(\ln z)'=1/z$ 的证明"
@@ -400,6 +408,7 @@ $$\boxed{\operatorname{Ln}z=\ln|z|+i\operatorname{Arg}z=\ln|z|+i\arg z+2k\pi i,\
     3. 实函数的三角恒等式全部照搬：$\sin^2z+\cos^2z=1$、和角公式等；
     4. **零点**与实函数相同：$\sin z=0\iff z=k\pi$，$\cos z=0\iff z=k\pi+\frac\pi2$；
     5. 与双曲函数的关系：$\cos(iz)=\operatorname{ch}z$，$\sin(iz)=i\operatorname{sh}z$；于是
+
     $$\sin(x+iy)=\sin x\operatorname{ch}y+i\cos x\operatorname{sh}y,\qquad \cos(x+iy)=\cos x\operatorname{ch}y-i\sin x\operatorname{sh}y .$$
 
 !!! warning "易错点：$|\sin z|\le1$ 不再成立"
@@ -590,7 +599,7 @@ $$\operatorname{Arccos}z=-i\operatorname{Ln}\left(z+\sqrt{z^2-1}\right),\qquad \
 
     (1) $f'=u_x+iv_x=0\Rightarrow u_x=v_x=0$，由 C-R 又有 $u_y=-v_x=0,\ v_y=u_x=0$。$u,v$ 的梯度在连通区域内恒为零，故 $u,v$ 为常数。
 
-    (2) 设 $u^2+v^2=c$。若 $c=0$ 则 $f\equiv0$。若 $c\ne0$，对 $x,y$ 求偏导：$uu_x+vv_x=0,\ uu_y+vv_y=0$。用 C-R 把 $u_y,v_y$ 换成 $-v_x,u_x$：$uu_x+vv_x=0,\ -uv_x+vu_x=0$。这是关于 $(u_x,v_x)$ 的齐次线性方程组，系数行列式 $u^2+v^2=c\ne0$，故 $u_x=v_x=0$，即 $f'\equiv0$，由 (1) $f$ 为常数。
+    (2) 设 $u^2+v^2=c$。若 $c=0$ 则 $f\equiv0$。若 $c\ne0$，对 $x,y$ 求偏导：$uu_x+vv_x=0,\ uu_y+vv_y=0$。用 C-R 把 $u_y,v_y$ 换成 $-v_x,u_x$：$uu_x+vv_x=0,\ -uv_x+vu_x=0$。这是关于 $(u_x,v_x)$ 的齐次线性方程组，系数行列式 $-(u^2+v^2)=-c\ne0$，故 $u_x=v_x=0$，即 $f'\equiv0$，由 (1) $f$ 为常数。
 
 ---
 

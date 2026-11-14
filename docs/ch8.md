@@ -356,7 +356,7 @@ $$\mathcal F[\delta(t)]=\int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\,\mathrm
 
     $$G(\omega)=2F(2\omega)=\begin{cases}2,&|\omega|\le1,\\0,&|\omega|>1.\end{cases}$$
 
-    $g(t)$ 是 $f(t)$ 拉宽一倍的结果，频带从 $|\omega|<2$ 缩小到 $|\omega|<1$，高度加倍（面积 $\int G\,\mathrm d\omega=2\pi g(0)$ 也加倍）。
+    $g(t)$ 是 $f(t)$ 拉宽一倍的结果，频带从 $|\omega|<2$ 缩小到 $|\omega|<1$，高度加倍，面积 $\int G\,\mathrm d\omega=2\pi g(0)$ 不变（仍等于 $\int F\,\mathrm d\omega$）。
 
 !!! theorem "性质 8.7（微分性质）"
 
@@ -528,7 +528,7 @@ $$\mathcal F[\delta(t)]=\int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\,\mathrm
 
     $$F(\omega)=e^{-\omega^2/4}\int_{-\infty}^{+\infty}e^{-(t+j\omega/2)^2}\,\mathrm dt=e^{-\omega^2/4}\lim_{\beta\to+\infty}\int_{-\beta+j\omega/2}^{\beta+j\omega/2}e^{-z^2}\,\mathrm dz .$$
 
-    后一个积分沿水平线 $\operatorname{Im}z=\frac\omega2$。取矩形闭路：实轴上的 $[-\beta,\beta]$、两条竖边、上边 $\operatorname{Im}z=\frac\omega2$。$e^{-z^2}$ 在全平面解析，由**柯西积分定理**（第 3 章），闭路积分为零。竖边 $z=\pm\beta+jy$（$y$ 在 $0$ 与 $\frac\omega2$ 之间）上 $|e^{-z^2}|=e^{-\beta^2+y^2}\le e^{-\beta^2+\omega^2/4}$，边长有限，由长大不等式，$\beta\to+\infty$ 时竖边上的积分趋于零。所以上边的积分等于实轴上的积分 $\sqrt\pi$：
+    后一个积分沿水平线 $\operatorname{Im}z=\frac\omega2$。取矩形闭路：实轴上的 $[-\beta,\beta]$、两条竖边、上边 $\operatorname{Im}z=\frac\omega2$。$e^{-z^2}$ 在全平面解析，由**柯西积分定理**（第 3 章），闭路积分为零。竖边 $z=\pm\beta+jy$（$y$ 在 $0$ 与 $\frac\omega2$ 之间）上 $|e^{-z^2}|=e^{-\beta^2+y^2}\le e^{-\beta^2+\omega^2/4}$，边长有限，由 ML 不等式，$\beta\to+\infty$ 时竖边上的积分趋于零。所以上边的积分等于实轴上的积分 $\sqrt\pi$：
 
     $$\mathcal F\left[e^{-t^2}\right]=\sqrt\pi\,e^{-\omega^2/4}.$$
 
@@ -566,7 +566,7 @@ $$\mathcal F[\delta(t)]=\int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\,\mathrm
 
     - $t<0$：下半平面闭合，里面没有极点，$f(t)=0$。
 
-    三种方法结果一致。解法三说明了一般规律：**频谱的极点全在上半 $\omega$ 平面 $\iff$ 信号是因果的**。换成 $s=j\omega$，上半 $\omega$ 平面就是左半 $s$ 平面，这正是第 9 章“极点在左半平面 $\iff$ 稳定”的来历。
+    三种方法结果一致。解法三说明了一般规律：对有理频谱 $F(\omega)$（分母次数高于分子），**频谱的极点全在上半 $\omega$ 平面 $\iff$ 信号是因果的**。换成 $s=j\omega$，上半 $\omega$ 平面就是左半 $s$ 平面，这正是第 9 章“极点在左半平面 $\iff$ 稳定”的来历。
 
 !!! warning "易错点"
 

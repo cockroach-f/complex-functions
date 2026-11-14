@@ -401,7 +401,7 @@ $$\mathrm d\theta=\frac{\mathrm dz}{iz},\qquad\cos\theta=\frac{z+z^{-1}}{2},\qqu
 
     $$\lim_{R\to\infty}\int_{C_R}f(z)\,\mathrm dz=0 .$$
 
-（由长大不等式：$\left|\int_{C_R}f\,\mathrm dz\right|\le\max_{C_R}|f|\cdot\pi R=\pi\max_{C_R}|zf(z)|\to0$。）
+（由 ML 不等式：$\left|\int_{C_R}f\,\mathrm dz\right|\le\max_{C_R}|f|\cdot\pi R=\pi\max_{C_R}|zf(z)|\to0$。）
 
 !!! theorem "公式 II"
 
@@ -472,7 +472,7 @@ $$\mathrm d\theta=\frac{\mathrm dz}{iz},\qquad\cos\theta=\frac{z+z^{-1}}{2},\qqu
 
 !!! warning "易错点：为什么不能直接用 $\cos az$"
 
-    $\cos z=\frac{e^{iz}+e^{-iz}}{2}$ 中的 $e^{-iz}$ 在上半平面 $|e^{-iz}|=e^{y}\to\infty$，大圆弧上的积分不趋于零。所以必须先把 $\cos ax$ 换成 $e^{iax}$，算完再取实部。$a<0$ 时应改用下半平面（或对 $a$ 取共轭）。
+    $\cos z=\frac{e^{iz}+e^{-iz}}{2}$ 中的 $e^{-iz}$ 在上半平面 $|e^{-iz}|=e^{y}\to\infty$，大圆弧上的积分不趋于零。所以必须先把 $\cos ax$ 换成 $e^{iax}$，算完再取实部。$a<0$ 时应改用下半平面（或对积分取共轭，化为 $a>0$ 的情形）。
 
 ### 5.3.4 被积函数在实轴上有一阶极点
 

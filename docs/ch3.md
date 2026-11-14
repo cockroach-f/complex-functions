@@ -2,7 +2,7 @@
 
 !!! tip "本章目标"
 
-    1. 理解复积分 $\int_C f(z)\,\mathrm dz$ 的定义（黎曼和的极限），会用**参数方程**和**实部虚部**两种方法计算，会用**长大不等式**估计积分；
+    1. 理解复积分 $\int_C f(z)\,\mathrm dz$ 的定义（黎曼和的极限），会用**参数方程**和**实部虚部**两种方法计算，会用**ML 不等式**估计积分；
     2. 牢记最重要的积分 $\displaystyle\oint_{|z-z_0|=r}\frac{\mathrm dz}{(z-z_0)^{n}}$；
     3. 掌握**柯西积分定理**、闭路变形原理、复合闭路定理，以及由此得到的原函数与牛顿-莱布尼茨公式；
     4. 熟练运用**柯西积分公式**与**高阶导数公式**计算闭路积分——这是第 5 章留数法的前身，也是期末必考；
@@ -92,11 +92,11 @@
     1. 线性：$\int_C[\alpha f+\beta g]\,\mathrm dz=\alpha\int_Cf\,\mathrm dz+\beta\int_Cg\,\mathrm dz$；
     2. 反向变号：$\int_{C^-}f\,\mathrm dz=-\int_Cf\,\mathrm dz$；
     3. 路径可加：$C=C_1+C_2\Rightarrow\int_C=\int_{C_1}+\int_{C_2}$；
-    4. **估值不等式**：
+    4. **ML 不等式**：
 
         $$\left|\int_C f(z)\,\mathrm dz\right|\le\int_C|f(z)|\,\mathrm ds\le ML,$$
 
-        其中 $M=\max_{z\in C}|f(z)|$，$L$ 为 $C$ 的长度。第二个不等式俗称**长大不等式**（“长度乘最大值”）。
+        其中 $M=\max_{z\in C}|f(z)|$，$L$ 为 $C$ 的长度；第二个不等式即 **ML 不等式**。
 
 !!! warning "易错点：$\mathrm dz$ 与 $\mathrm ds$"
 
@@ -129,7 +129,7 @@
 <figcaption>动画 3-2　$\oint\frac{\mathrm dz}{z}$：左边是小弦 $\Delta z_k$，右边是累加的 $\frac{\Delta z_k}{z_k}$，全都指向 $i$，总和 $2\pi i$；$\oint\frac{\mathrm dz}{z^2}$ 的小向量绕一圈，总和为 $0$。</figcaption>
 </figure>
 
-!!! example "例题 3.3（长大不等式）"
+!!! example "例题 3.3（ML 不等式）"
 
     设 $C$ 为上半单位圆周，从 $1$ 到 $-1$。证明 $\left|\displaystyle\int_C\frac{e^z}{z}\,\mathrm dz\right|\le e\pi$。
 
@@ -208,7 +208,7 @@
 
     设 $C$ 与 $C_1$ 是两条简单闭曲线，$C_1$ 在 $C$ 的内部，$D$ 是它们之间的二连通区域。若 $f(z)$ 在 $D$ 内及边界 $C,C_1$ 上解析，则
 
-    $$\oint_C f(z)\,\mathrm dz=\oint_{C_1}f(z)\,\mathrm dz\qquad(C,\ C_1\ 均取逆时针方向).$$
+    $$\oint_C f(z)\,\mathrm dz=\oint_{C_1}f(z)\,\mathrm dz\qquad(C,\ C_1\ \text{均取逆时针方向}).$$
 
 ??? proof "证明"
 
@@ -280,7 +280,7 @@ $$\oint_C\frac{\mathrm dz}{z-z_0}=2\pi i\quad(\text{$C$ 为任意包围 $z_0$ �
 
     $$\frac{F(z+\Delta z)-F(z)}{\Delta z}-f(z)=\frac{1}{\Delta z}\int_z^{z+\Delta z}\big[f(\zeta)-f(z)\big]\,\mathrm d\zeta .$$
 
-    由 $f$ 连续，对任意 $\varepsilon>0$，当 $|\Delta z|$ 足够小时线段上 $|f(\zeta)-f(z)|<\varepsilon$，由长大不等式，上式的模 $\le\frac{1}{|\Delta z|}\cdot\varepsilon|\Delta z|=\varepsilon$。故 $F'(z)=f(z)$。$\blacksquare$
+    由 $f$ 连续，对任意 $\varepsilon>0$，当 $|\Delta z|$ 足够小时线段上 $|f(\zeta)-f(z)|<\varepsilon$，由 ML 不等式，上式的模 $\le\frac{1}{|\Delta z|}\cdot\varepsilon|\Delta z|=\varepsilon$。故 $F'(z)=f(z)$。$\blacksquare$
 
 !!! example "例题 3.8"
 
@@ -466,7 +466,7 @@ $$\oint_C\frac{\mathrm dz}{z-z_0}=2\pi i\quad(\text{$C$ 为任意包围 $z_0$ �
 
     $$\big|f^{(n)}(z_0)\big|\le\frac{n!\,M}{R^n}\qquad(n=1,2,\dots).$$
 
-（对 $|z-z_0|=r<R$ 用高阶导数公式和长大不等式：$|f^{(n)}(z_0)|\le\frac{n!}{2\pi}\cdot\frac{M}{r^{n+1}}\cdot2\pi r$，再令 $r\to R$。）
+（对 $|z-z_0|=r<R$ 用高阶导数公式和 ML 不等式：$|f^{(n)}(z_0)|\le\frac{n!}{2\pi}\cdot\frac{M}{r^{n+1}}\cdot2\pi r$，再令 $r\to R$。）
 
 !!! theorem "定理 3.12（刘维尔定理）"
 
@@ -492,7 +492,7 @@ $$\oint_C\frac{\mathrm dz}{z-z_0}=2\pi i\quad(\text{$C$ 为任意包围 $z_0$ �
 
     ```mermaid
     flowchart TD
-        DEF["复积分 = 黎曼和极限<br/>参数法 ∫ f(z(t)) z'(t) dt"] --> EST["长大不等式 |∫| ≤ ML"]
+        DEF["复积分 = 黎曼和极限<br/>参数法 ∫ f(z(t)) z'(t) dt"] --> EST["ML 不等式 |∫| ≤ ML"]
         DEF --> KEY["∮ dz/(z−z₀)ⁿ = 2πi (n=1), 0 (n≠1)"]
         CR["第2章：解析 / C-R"] --> CT["柯西定理<br/>单连通 + 解析 ⇒ ∮ = 0"]
         CT --> DEFORM["闭路变形 / 复合闭路<br/>只看围住哪些奇点"]
@@ -512,7 +512,7 @@ $$\oint_C\frac{\mathrm dz}{z-z_0}=2\pi i\quad(\text{$C$ 为任意包围 $z_0$ �
     | 内容 | 结论 |
     |---|---|
     | 参数法 | $\int_Cf\,\mathrm dz=\int_\alpha^\beta f(z(t))z'(t)\,\mathrm dt$ |
-    | 估值 | $\left\lvert\int_Cf\,\mathrm dz\right\rvert\le\int_C\lvert f\rvert\,\mathrm ds\le ML$ |
+    | ML 不等式 | $\left\lvert\int_Cf\,\mathrm dz\right\rvert\le\int_C\lvert f\rvert\,\mathrm ds\le ML$ |
     | 关键积分 | $\oint_{\lvert z-z_0\rvert=r}\frac{\mathrm dz}{(z-z_0)^n}=2\pi i\ (n=1)$，其余整数 $n$ 为 $0$ |
     | 柯西定理 | 单连通域内解析 ⇒ $\oint_Cf\,\mathrm dz=0$ |
     | 复合闭路 | $\oint_Cf\,\mathrm dz=\sum_k\oint_{C_k}f\,\mathrm dz$ |

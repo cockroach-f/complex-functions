@@ -44,7 +44,7 @@
 |---|---|
 | 参数法 | $\int_Cf(z)\,\mathrm dz=\int_\alpha^\beta f(z(t))\,z'(t)\,\mathrm dt$ |
 | 实部虚部 | $\int_Cf\,\mathrm dz=\int_Cu\,\mathrm dx-v\,\mathrm dy+i\int_Cv\,\mathrm dx+u\,\mathrm dy$ |
-| 长大不等式 | $\left\lvert\int_Cf\,\mathrm dz\right\rvert\le\int_C\lvert f\rvert\,\mathrm ds\le ML$ |
+| ML 不等式 | $\left\lvert\int_Cf\,\mathrm dz\right\rvert\le\int_C\lvert f\rvert\,\mathrm ds\le ML$ |
 | 关键积分 | $\oint_{\lvert z-z_0\rvert=r}\frac{\mathrm dz}{(z-z_0)^n}=2\pi i\ (n=1)$，$0\ (n\ne1)$ |
 | 柯西定理 | 单连通域内解析 ⇒ $\oint_Cf\,\mathrm dz=0$ |
 | 复合闭路 | $\oint_Cf\,\mathrm dz=\sum_k\oint_{C_k}f\,\mathrm dz$ |
@@ -60,7 +60,7 @@
 | 内容 | 公式 |
 |---|---|
 | 几何级数 | $\sum_{n=0}^\infty z^n=\frac{1}{1-z}$，$\lvert z\rvert<1$ |
-| 收敛半径 | $R=\frac1\lambda$，$\lambda=\lim\left\lvert\frac{c_{n+1}}{c_n}\right\rvert=\lim\sqrt[n]{\lvert c_n\rvert}$ |
+| 收敛半径 | $R=\frac1\lambda$，$\lambda=\lim\left\lvert\frac{c_{n+1}}{c_n}\right\rvert$ 或 $\lambda=\lim\sqrt[n]{\lvert c_n\rvert}$（极限存在时；$\lambda=0$ 时 $R=+\infty$，$\lambda=+\infty$ 时 $R=0$） |
 | 泰勒系数 | $c_n=\frac{f^{(n)}(z_0)}{n!}=\frac{1}{2\pi i}\oint_C\frac{f(\zeta)}{(\zeta-z_0)^{n+1}}\,\mathrm d\zeta$ |
 | 收敛半径（解析函数） | $R=$ 展开中心到最近奇点的距离 |
 | $e^z$ | $\sum\frac{z^n}{n!}$，$\lvert z\rvert<\infty$ |
